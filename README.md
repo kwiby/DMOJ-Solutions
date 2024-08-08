@@ -3,4 +3,4 @@
 
 Solutions to various problems from DMOJ. Includes those from the CCC, COCI, DMOPC, and more.
 
-Access all the solutions through the src folder.
+Access all solutions through the src folder.
