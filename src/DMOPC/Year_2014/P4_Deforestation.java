@@ -1,33 +1,30 @@
 package DMOPC.Year_2014;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class P4_Deforestation {
-    public static void main(String[] args) {
-        Scanner user = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader user = new BufferedReader(new InputStreamReader(System.in));
 
-        int treesInLine = user.nextInt();
+        int N = Integer.parseInt(user.readLine());
+        int[] psa = new int[N + 1];
 
-        int[] masses = new int[treesInLine];
-        for (int i = 0; i < treesInLine; i++) {
-            masses[i] = user.nextInt();
+        for (int i = 1; i <= N; i++) {
+            psa[i] = psa[i - 1] + Integer.parseInt(user.readLine());
         }
 
-        int[] psa = new int[treesInLine];
-        psa[0] = masses[0];
-        for (int i = 1; i < treesInLine; i++) {
-            psa[i] = psa[i - 1] + masses[i];
-        }
+        int Q = Integer.parseInt(user.readLine());
+        for (int i = 0; i < Q; i++) {
+            StringTokenizer st = new StringTokenizer(user.readLine());
+            int L = Integer.parseInt(st.nextToken());
+            int R = Integer.parseInt(st.nextToken());
 
-        int numQ = user.nextInt();
-        for (int i = 0; i < numQ; i++) {
-            int L = user.nextInt(); int R = user.nextInt();
-
-            if (L == 0) {
-                System.out.println(psa[R]);
-            } else {
-                System.out.println(psa[R] - psa[L - 1]);
-            }
+            System.out.println(psa[R + 1] - psa[L]);
         }
     }
 }
