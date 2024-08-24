@@ -3,7 +3,6 @@ package The_Cosmic_Era;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class P3_Battle_Positions {
@@ -23,19 +22,15 @@ public class P3_Battle_Positions {
             int K = Integer.parseInt(st.nextToken());
 
             psa[L] += K;
-            if (R + 1 < I) {
+            if (R < I) {
                 psa[R + 1] -= K;
             }
-
-            System.out.println("\nL = " + L + "   |   R = " + R + "   |   K = " + K + "   |   psa = " + Arrays.toString(psa));
-        }
-
-        for (int i = 1; i < I; i++) {
-            psa[i] += psa[i - 1];
         }
 
         int count = 0;
-        for (int i = 0; i < I; i++) {
+        for (int i = 1; i <= I; i++) {
+            psa[i] += psa[i - 1];
+
             if (psa[i] < N) {
                 count++;
             }
