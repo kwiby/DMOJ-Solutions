@@ -28,10 +28,11 @@ public class P3_Battle_Positions {
             }
 
             System.out.println("\nL = " + L + "   |   R = " + R + "   |   K = " + K + "   |   psa = " + Arrays.toString(psa));
-        }
+        }// 1 3 5 0
 
         for (int i = 1; i < I; i++) {
             psa[i] += psa[i - 1];
+            System.out.println(Arrays.toString(psa));
         }
 
         int count = 0;

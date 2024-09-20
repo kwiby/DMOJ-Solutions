@@ -1,32 +1,36 @@
 package CCC.Year_2021;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class S2_Modern_Art {
-    public static void main(String[] args) {
-        Scanner user = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader user = new BufferedReader(new InputStreamReader(System.in));
 
-        int numOfGolds = 0;
+        int M = Integer.parseInt(user.readLine());
+        int N = Integer.parseInt(user.readLine());
 
-        int [] r = new int[user.nextInt()];
-        int [] c = new int[user.nextInt()];
+        int[] row = new int[M];
+        int[] col = new int[N];
 
-        int K = user.nextInt();
 
-        user.nextLine();
-
+        int K = Integer.parseInt(user.readLine());
         for (int i = 0; i < K; i++) {
-            String temp = user.nextLine();
-            if (temp.charAt(0) == 'R') {
-                r[Integer.parseInt(temp.substring(2)) - 1]++;
+            StringTokenizer st = new StringTokenizer(user.readLine());
+
+            if (st.nextToken().equals("R")) {
+                row[Integer.parseInt(st.nextToken()) - 1]++;
             } else {
-                c[Integer.parseInt(temp.substring(2)) - 1]++;
+                col[Integer.parseInt(st.nextToken()) - 1]++;
             }
         }
 
-        for (int rIndex : r) {
-            for (int cIndex : c) {
-                if ((rIndex + cIndex) % 2 != 0) {
+        int numOfGolds = 0;
+        for (int r : row) {
+            for (int c : col) {
+                if ((r + c) % 2 != 0) {
                     numOfGolds++;
                 }
             }
