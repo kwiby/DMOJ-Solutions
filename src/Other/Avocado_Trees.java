@@ -14,19 +14,22 @@ public class Avocado_Trees {
         int Q = Integer.parseInt(st.nextToken()); // # of ranges
         int H = Integer.parseInt(st.nextToken()); // Max height
 
-        Map<Integer, List<Integer>> info = new HashMap<>();
-        info.put(0, Arrays.asList(0, 0));
+        int[] psa = new int[N + 1];
 
-        for (int i = 1; i < N; i++) {
+        for (int i = 1; i <= N; i++) {
             st = new StringTokenizer(user.readLine());
 
             int height = Integer.parseInt(st.nextToken());
             int yield = Integer.parseInt(st.nextToken());
 
             if (height <= H) {
-                info.put(i, Arrays.asList(info.get(i - 1) + height, yield));
+                psa[i] = psa[i - 1] + yield;
+            } else {
+                psa[i] = psa[i - 1];
             }
         }
+
+        int max = -1;
 
         for (int i = 0; i < Q; i++) {
             st = new StringTokenizer(user.readLine());
@@ -34,7 +37,9 @@ public class Avocado_Trees {
             int l = Integer.parseInt(st.nextToken()) - 1;
             int r = Integer.parseInt(st.nextToken());
 
-
+            max = Math.max(max, psa[r] - psa[l]);
         }
+
+        System.out.println(max);
     }
 }
