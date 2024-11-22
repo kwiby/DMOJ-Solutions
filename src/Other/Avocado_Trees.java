@@ -30,7 +30,7 @@ public class Avocado_Trees {
         }
 
         int max = -1;
-
+ 
         for (int i = 0; i < Q; i++) {
             st = new StringTokenizer(user.readLine());
 

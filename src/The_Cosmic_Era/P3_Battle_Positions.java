@@ -9,9 +9,9 @@ public class P3_Battle_Positions {
     public static void main(String[] args) throws IOException {
         BufferedReader user = new BufferedReader(new InputStreamReader(System.in));
 
-        int I = Integer.parseInt(user.readLine());
-        int N = Integer.parseInt(user.readLine());
-        int J = Integer.parseInt(user.readLine());
+        int I = Integer.parseInt(user.readLine()); // # of stations
+        int N = Integer.parseInt(user.readLine()); // Min # of troops
+        int J = Integer.parseInt(user.readLine()); // # of waves
 
         int[] psa = new int[I + 1];
 
